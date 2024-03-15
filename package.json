@@ -29,7 +29,7 @@
     "@angular/platform-browser-dynamic": "^13.4.0",
     "@angular/router": "^13.4.0",
     "@datorama/akita": "^7.1.1",
-    "@datorama/akita-ng-router-store": "^6.0.0",
+    "@datorama/akita-ng-router-store": "^7.0.0",
     "@intelligentmobiles-gmbh/akita-ng-fire": "^6.0.7",
     "firebase": "^9.23.0",
     "rxjs": "^7.8.1",
