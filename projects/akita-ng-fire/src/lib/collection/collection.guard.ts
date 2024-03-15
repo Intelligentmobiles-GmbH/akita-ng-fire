@@ -10,7 +10,7 @@ import {
 import { Subscription, Observable, Subject } from 'rxjs';
 import { CollectionService } from './collection.service';
 import { FireAuthService } from '../auth/auth.service';
-import { QueryFn } from '@angular/fire/firestore';
+import { QueryFn } from '@angular/fire/compat/firestore';
 import { EntityState } from '@datorama/akita';
 import { takeUntil } from 'rxjs/operators';
 import { FireAuthState } from '../auth/auth.model';
@@ -87,7 +87,7 @@ export class CollectionGuard<S extends EntityState<any> | FireAuthState = any>
       next.data as CollectionRouteData;
     return new Promise((res, rej) => {
       if (awaitSync) {
-        const unsubscribe = new Subject();
+        const unsubscribe = new Subject<void>();
         this.subscription = this.sync(next, state)
           .pipe(takeUntil(unsubscribe))
           .subscribe({

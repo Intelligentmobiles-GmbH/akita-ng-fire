@@ -6,7 +6,8 @@ import {
   QueryFn,
   QueryGroupFn,
   Query,
-} from '@angular/fire/firestore';
+  DocumentData,
+} from '@angular/fire/compat/firestore';
 import {
   EntityStore,
   withTransaction,
@@ -14,7 +15,7 @@ import {
   ActiveState,
   getEntityType,
 } from '@datorama/akita';
-import firebase from 'firebase/app';
+import firebase from 'firebase/compat/app';
 import { getIdAndPath } from '../utils/id-or-path';
 import {
   syncStoreFromDocAction,
@@ -282,7 +283,7 @@ export class CollectionService<
   ): Observable<DocumentChangeAction<EntityType>[]>;
   syncCollectionGroup(
     // tslint:disable-next-line: unified-signatures
-    queryGroupFn?: QueryGroupFn
+    queryGroupFn?: QueryGroupFn<EntityType>
   ): Observable<DocumentChangeAction<EntityType>[]>;
   syncCollectionGroup(
     collectionId: string,
@@ -290,16 +291,16 @@ export class CollectionService<
   ): Observable<DocumentChangeAction<EntityType>[]>;
   syncCollectionGroup(
     collectionId: string,
-    queryGroupFn?: QueryGroupFn,
+    queryGroupFn?: QueryGroupFn<EntityType>,
     syncOptions?: Partial<SyncOptions>
   ): Observable<DocumentChangeAction<EntityType>[]>;
   syncCollectionGroup(
-    idOrQuery: string | QueryGroupFn | Partial<SyncOptions> = this.currentPath,
-    queryOrOption?: QueryGroupFn | Partial<SyncOptions>,
+    idOrQuery: string | QueryGroupFn<EntityType> | Partial<SyncOptions> = this.currentPath,
+    queryOrOption?: QueryGroupFn<EntityType> | Partial<SyncOptions>,
     syncOptions: Partial<SyncOptions> = { loading: true }
   ): Observable<DocumentChangeAction<EntityType>[]> {
     let path: string;
-    let query: QueryFn;
+    let query: QueryGroupFn<EntityType>;
     if (typeof idOrQuery === 'string') {
       path = idOrQuery;
     } else if (typeof idOrQuery === 'function') {
@@ -833,7 +834,7 @@ export class CollectionService<
       return this.db.firestore.runTransaction(async (tx) => {
         const operations = ids.map(async (id) => {
           const { ref } = this.db.doc(`${path}/${id}`);
-          const snapshot = await tx.get(ref);
+          const snapshot = await tx.get<DocumentData>(ref);
           const doc = Object.freeze({
             ...snapshot.data(),
             [this.idKey]: id,
