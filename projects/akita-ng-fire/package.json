@@ -1,5 +1,5 @@
 {
-  "name": "akita-ng-fire",
+  "name": "@intelligentmobiles-gmbh/akita-ng-fire",
   "version": "6.0.5",
   "peerDependencies": {
     "@angular/common": ">=9.0.0 <13",
@@ -23,10 +23,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dappsnation/akita-ng-fire"
+    "url": "https://github.com/intelligentmobiles-gmbh/akita-ng-fire"
   },
   "bugs": {
-    "email": "grandschtroumpf@cascade8.com",
-    "url": "https://github.com/dappsnation/akita-ng-fire/issues"
+    "email": "ml@intelligentmobiles.com",
+    "url": "https://github.com/intelligentmobiles-gmbh/akita-ng-fire/issues"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
