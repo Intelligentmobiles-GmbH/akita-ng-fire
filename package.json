@@ -30,7 +30,7 @@
     "@angular/router": "^13.4.0",
     "@datorama/akita": "^7.1.1",
     "@datorama/akita-ng-router-store": "^6.0.0",
-    "@intelligentmobiles-gmbh/akita-ng-fire": "^6.0.6",
+    "@intelligentmobiles-gmbh/akita-ng-fire": "^6.0.7",
     "firebase": "^9.23.0",
     "rxjs": "^7.8.1",
     "tslib": "^2.2.0",
