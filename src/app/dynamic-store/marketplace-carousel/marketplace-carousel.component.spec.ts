@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MarketplaceCarouselComponent } from './marketplace-carousel.component';
+import { AppModule } from '../../app.module';
 
 describe('MarketplaceCarouselComponent', () => {
   let component: MarketplaceCarouselComponent;
@@ -8,7 +9,8 @@ describe('MarketplaceCarouselComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MarketplaceCarouselComponent ]
+      declarations: [ MarketplaceCarouselComponent ],
+      imports: [AppModule],
     })
     .compileComponents();
   }));

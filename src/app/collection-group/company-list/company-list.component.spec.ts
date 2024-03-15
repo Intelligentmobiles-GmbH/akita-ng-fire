@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CompanyListComponent } from './company-list.component';
+import { AppModule } from '../../app.module';
 
 describe('CompanyListComponent', () => {
   let component: CompanyListComponent;
@@ -8,7 +9,8 @@ describe('CompanyListComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CompanyListComponent ]
+      declarations: [ CompanyListComponent ],
+      imports: [AppModule],
     })
     .compileComponents();
   }));

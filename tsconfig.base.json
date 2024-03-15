@@ -21,8 +21,5 @@
       ],
       "akita-ng-fire/*": ["dist/akita-ng-fire/*"]
     }
-  },
-  "angularCompilerOptions": {
-    "compilationMode": "partial"
   }
 }

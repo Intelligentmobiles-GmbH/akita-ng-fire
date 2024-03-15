@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { QueryFn } from '@angular/fire/compat/firestore';
 import { MarketplaceStore } from '../+state/marketplace.store';
 import { MarketplaceQuery } from '../+state/marketplace.query';
 import { MarketplaceService } from '../+state/marketplace.service';
@@ -24,7 +25,7 @@ export class MarketplaceCarouselComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     const storeName = this.store.storeName;
-    const queryFn = (ref) => ref.where('title', '==', this.title);
+    const queryFn: QueryFn = (ref) => ref?.where('title', '==', this.title || "");
     this.sub = this.service.syncCollection(queryFn, { storeName }).subscribe();
     this.movies$ = this.query.selectAll();
   }

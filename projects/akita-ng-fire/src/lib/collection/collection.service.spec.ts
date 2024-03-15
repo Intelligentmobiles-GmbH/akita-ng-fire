@@ -71,9 +71,9 @@ describe('CollectionService', () => {
   beforeEach(async () => {
     spectator = createService();
     service = spectator.service;
-    store = spectator.get(MovieStore);
-    query = spectator.get(MovieQuery);
-    db = spectator.get(AngularFirestore);
+    store = spectator.inject(MovieStore);
+    query = spectator.inject(MovieQuery);
+    db = spectator.inject(AngularFirestore);
     // Clear Database & store
     const snaps = await Promise.all(collections.map(col => db.collection(col).ref.get()));
     const docs = snaps.reduce((acc, snap) => acc.concat(snap.docs), [] as firebase.firestore.QueryDocumentSnapshot[]);

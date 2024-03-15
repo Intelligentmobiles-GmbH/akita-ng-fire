@@ -16,6 +16,7 @@ import {
   getEntityType,
 } from '@datorama/akita';
 import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
 import { getIdAndPath } from '../utils/id-or-path';
 import {
   syncStoreFromDocAction,
@@ -98,6 +99,7 @@ export class CollectionService<
     try {
       this.db = db || inject(AngularFirestore);
     } catch (err) {
+      debugger
       throw new Error('CollectionService requires AngularFirestore.');
     }
   }

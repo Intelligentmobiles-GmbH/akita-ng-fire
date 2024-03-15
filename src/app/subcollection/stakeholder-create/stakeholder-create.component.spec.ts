@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { StakeholderCreateComponent } from './stakeholder-create.component';
+import { AppModule } from '../../app.module';
 
 describe('StakeholderCreateComponent', () => {
   let component: StakeholderCreateComponent;
@@ -8,7 +9,8 @@ describe('StakeholderCreateComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ StakeholderCreateComponent ]
+      declarations: [ StakeholderCreateComponent ],
+      imports: [AppModule],
     })
     .compileComponents();
   }));

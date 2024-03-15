@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CatalogSelectionComponent } from './catalog-selection.component';
+import { AppModule } from '../../app.module';
 
 describe('CatalogSelectionComponent', () => {
   let component: CatalogSelectionComponent;
@@ -8,7 +9,8 @@ describe('CatalogSelectionComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CatalogSelectionComponent ]
+      declarations: [ CatalogSelectionComponent ],
+      imports: [AppModule],
     })
     .compileComponents();
   }));
